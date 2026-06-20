@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <title>Doctor Appointment System</title>
+
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+  <header>
+
+    <h1>🏥 Doctor Appointment System</h1>
+
+    <p>Book your appointment instantly on WhatsApp</p>
+
+  </header>
+
+  <!-- FORM -->
+
+  <div class="card">
+
+    <h2>Book Appointment</h2>
+
+    <label>Enter Patient Name</label>
+
+    <input type="text" id="name" placeholder="e.g. Ahmed">
+
+    <label>Enter Phone Number</label>
+
+    <input type="text" id="phone" placeholder="e.g. 9876543210">
+
+    <label>Enter Date</label>
+
+    <input type="date" id="date">
+
+    <label>Enter Time</label>
+
+    <input type="time" id="time">
+
+    <label>Select Doctor</label>
+
+    <select id="doctor">
+
+      <option value="919164167886">Mohammed Thousif</option>
+
+      <option value="917892846453">Faizan Rasheed</option>
+
+      <option value="919380578007">Aboobaquer Sanad</option>
+
+      <option value="918296759158">Sheikh Afil H</option>
+
+      <option value="917353026836">Ruvez Abdul Rehman</option>
+
+    </select>
+
+    <label>Enter Reason for Visit</label>
+
+    <textarea id="reason" placeholder="e.g. Fever, headache"></textarea>
+
+    <button onclick="sendWhatsApp()">Book Appointment</button>
+
+  </div>
+
+  <!-- DOCTOR LIST -->
+
+  <div class="card">
+
+    <h2>Available Doctors</h2>
+
+    <div class="grid">
+
+      <div class="doctor">👨‍⚕️ Mohammed Thousif</div>
+
+      <div class="doctor">👨‍⚕️ Faizan Rasheed</div>
+
+      <div class="doctor">👨‍⚕️ Aboobaquer Sanad</div>
+
+      <div class="doctor">👨‍⚕️ Sheikh Afil H</div>
+
+      <div class="doctor">👨‍⚕️ Ruvez Abdul Rehman</div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+
+function sendWhatsApp() {
+
+  let name = document.getElementById("name").value;
+
+  let phone = document.getElementById("phone").value;
+
+  let date = document.getElementById("date").value;
+
+  let time = document.getElementById("time").value;
+
+  let doctor = document.getElementById("doctor").value;
+
+  let reason = document.getElementById("reason").value;
+
+  let message =
+
+`🏥 Doctor Appointment Request
+
+👤 Patient Name: ${name}
+
+📞 Phone: ${phone}
+
+📅 Date: ${date}
+
+⏰ Time: ${time}
+
+🩺 Reason: ${reason}`;
+
+  let url = "https://wa.me/" + doctor + "?text=" + encodeURIComponent(message);
+
+  window.open(url, "_blank");
+
+}
+
+</script>
+
+</body>
+
+</html>
